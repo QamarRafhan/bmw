@@ -196,12 +196,13 @@ class ProductController extends Controller
     {
 
         try {
-            ProductModel::findOrFail($productId);
-            $data = DB::table('get_product_data')
-                ->where('offer_product_id', '=', $productId)->get()[0];
+            $data = ProductModel::findOrFail($productId);
+
+
             $brands = BrandModel::all();
+         
             $subCategories = SubCategoryModel::all();
-            $productImages = ProductImagesModel::where('image_product_id', $productId)->get();
+            $productImages = ProductImagesModel::where('product_id', $productId)->get();
             return view('backend.product.product_edit', compact('data', 'brands', 'subCategories', 'productImages'));
         } catch (ModelNotFoundException $exception) {
             return redirect()->route('vendor-product')->with('error', 'Failed, try again later.');

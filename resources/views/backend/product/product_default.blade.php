@@ -130,15 +130,7 @@
 
                                                                     <dt class="col-sm-3">Colors</dt>
                                                                     <dd class="col-sm-9">
-                                                                        <div
-                                                                            class="color-indigators d-flex align-items-center gap-2">
-                                                                            @foreach(ProductController::getProductSeparatedColors
-                                                                        ($item->product_colors) as $color)
-                                                                                <div class="color-indigator-item"
-                                                                                     style="background-color:
-                                                                             {{$color}}"></div>
-                                                                            @endforeach
-                                                                        </div>
+                                                                       
 
 
                                                                     </dd>
@@ -147,13 +139,7 @@
                                                                     <dd class="col-sm-9">{{$item->product_quantity}}
 
                                                                     <dt class="col-sm-3">Tags</dt>
-                                                                    <dd class="col-sm-9">
-                                                                        @foreach(ProductController::getProductSeparatedTags
-                                                                        ($item->product_tags) as $tag)
-                                                                            <span
-                                                                                class="badge bg-primary">{{$tag}}</span>
-                                                                        @endforeach
-                                                                    </dd>
+                                                                   
 
                                                                     <dt class="col-sm-3">Status</dt>
                                                                     <dd class="col-sm-9">
@@ -186,18 +172,18 @@
                             <td>
                                 <div class="d-flex order-actions">
                                     @if(Auth::user()->role == "vendor")
-                                        <a href="edit_product/{{$item->product_id}}"><i class='bx
+                                        <a href="edit_product/{{$item->id}}"><i class='bx
                                        bxs-edit'></i>
                                         </a>
                                     @endif
 
 
                                     <a href="" class="ms-3" data-bs-toggle="modal"
-                                       data-bs-target="#exampleDangerModal-{{$item->product_id}}">
+                                       data-bs-target="#exampleDangerModal-{{$item->id}}">
 
                                         <i class='bx bxs-trash'></i>
                                         <!-- Modal -->
-                                        <div class="modal fade" id="exampleDangerModal-{{$item->product_id}}"
+                                        <div class="modal fade" id="exampleDangerModal-{{$item->id}}"
                                              tabindex="-1"
                                              style="display: none;" aria-hidden="true">
                                             <div class="modal-dialog modal-lg modal-dialog-centered">

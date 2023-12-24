@@ -28,9 +28,9 @@
         <div class="card-body p-4">
             <h5 class="card-title">Edit Product</h5>
             <hr/>
-            <form action="{{route('vendor-product-update', ['id' => $data->product_id])}}" method="POST" id="product_form"
+            <form action="{{route('vendor-product-update', ['id' => $data->id])}}" method="POST" id="product_form"
                   enctype="multipart/form-data">
-                <input name="product_id" value="{{$data->product_id}}" hidden/>
+                <input name="product_id" value="{{$data->id}}" hidden/>
                 @csrf
                 <div class="form-body mt-4">
                     <div class="row">
@@ -219,7 +219,7 @@
                 });
 
                 $.ajax({
-                    url: "{{route('vendor-product-update', ['id' => $data->product_id])}}",
+                    url: "{{route('vendor-product-update', ['id' => $data->id])}}",
                     method: 'POST',
                     data: new FormData(this),
                     dataType: 'JSON',
