@@ -43,7 +43,6 @@ Route::get('/', function () {
     $brands = BrandModel::All();
     $products = ProductModel::All();
 
-
     return view('frontend.pages.index', ['brands' => $brands, 'products' => $products]);
 })->name('home');
 
