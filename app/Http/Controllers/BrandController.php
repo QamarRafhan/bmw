@@ -75,7 +75,7 @@ class BrandController extends Controller
         if ($newImage)
         {
             $data['brand_image'] = $this->handleRequestImage($request->file('brand_image'), 'uploads/images/brand');
-            MyHelpers::deleteImageFromStorage($brand->brand_image, 'uploads/images/brand/');
+            // MyHelpers::deleteImageFromStorage($brand->brand_image, 'uploads/images/brand/');
         }
 
         // update
