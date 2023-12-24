@@ -75,8 +75,8 @@ class ProductController extends Controller
             unset($data['product_images']);
 
         $insertedProductId = ProductModel::insertGetId($data);
-       
-        if ($insertedProductId){
+
+        if ($insertedProductId) {
             // handling the product images
             if ($request->file('product_images'))
                 $this->handleProductMultiImages($request->file('product_images'), $insertedProductId);
@@ -137,19 +137,21 @@ class ProductController extends Controller
      * @param int $productId
      * @return mixed
      */
-    public static function getProductImages(int $productId)
+    public static function getProductImages($productId)
     {
-        return ProductImagesModel::where('image_product_id', '=', $productId)->get('product_image');
+        if ($productId) {
+            return ProductImagesModel::where('image_product_id', '=', $productId)->get('product_image');
+        }
+        return [];
     }
 
     /**
      * @param string $tags
      * @return array
      */
-    public static function getProductSeparatedTags(string $tags): array
+    public static function getProductSeparatedTags($tags): array
     {
-        if ($tags)
-            return explode(',', $tags);
+
         return [];
     }
 
@@ -157,10 +159,9 @@ class ProductController extends Controller
      * @param string $colors
      * @return array
      */
-    public static function getProductSeparatedColors(string $colors): array
+    public static function getProductSeparatedColors($colors = null): array
     {
-        if ($colors)
-            return explode(',', $colors);
+
         return [];
     }
 
@@ -314,7 +315,7 @@ class ProductController extends Controller
             ->where('user_id', Auth::id())->get('vendor_id')[0]->vendor_id;
 
         // selecting all products related to this shop
-        $data = ProductModel::where('vendor_id', $currentVendorId)->get();
+        $data = ProductModel::where('vendor_id', Auth::id())->get();
         return view('backend.product.product_default', compact('data'));
     }
 }

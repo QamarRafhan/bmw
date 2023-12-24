@@ -17,7 +17,7 @@ Route::middleware(['auth', 'auth.role:admin'])
     ->controller(ProductController::class)->group(function (){
 
         Route::view('products', 'backend.product.product_default',
-            ['data' => DB::table('get_product_data')->get()])
+            ['data' => DB::table('products')->get()])
             ->name('product');
         Route::get('remove_product/{id}', 'productRemove')
             ->whereNumber('id')

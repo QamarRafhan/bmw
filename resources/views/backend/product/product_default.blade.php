@@ -30,8 +30,8 @@
                     <thead>
                     <tr>
                         <th>Product Name</th>
-                        <th>Product Code</th>
-                        <th>Product Quantity</th>
+                        <!-- <th>Product Code</th> -->
+                        <!-- <th>Product Quantity</th> -->
                         <th>Product Price</th>
                         <th>Product Status</th>
                         <th>Product Details</th>
@@ -42,8 +42,8 @@
                     @foreach($data as $item)
                         <tr>
                             <td>{{$item->product_name}}</td>
-                            <td>{{$item->product_code}}</td>
-                            <td>{{$item->product_quantity}}</td>
+                            <!-- <td>{{$item->product_code}}</td> -->
+                            <!-- <td>{{$item->product_quantity}}</td> -->
                             <td>{{$item->product_price}}</td>
                             <td>
                                 <form method="POST" action="{{route('vendor-product-activate')}}" class="activate_form">
