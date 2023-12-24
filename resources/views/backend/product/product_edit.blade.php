@@ -62,27 +62,6 @@
 
                                 </div>
 
-                                <div class="mb-3">
-                                    <label for="inputProductQuantity" class="form-label">Product Quantity</label>
-                                    <input name="product_quantity" type="number" min="0" class="form-control"
-                                           id="inputProductQuantity" required value="{{$data->product_quantity}}">
-                                    <small style="color: #e20000" class="error" id="product_quantity-error"></small>
-
-                                </div>
-
-                                <div class="mb-3">
-                                    <label class="form-label">Basic</label>
-
-                                    <input name="product_tags" type="text" class="form-control visually-hidden"
-                                           data-role="tagsinput"
-                                           value="{{$data->product_tags}}">
-                                </div>
-
-                                <div class="mb-3">
-                                    <label class="form-label">Product Colors</label>
-                                    <input name="product_colors" type="text" class="form-control
-                                visually-hidden" data-role="tagsinput" value="{{$data->product_colors}}">
-                                </div>
 
                                 <div class="row mb-3">
                                     <label class="form-label">Product Thumbnail</label>
@@ -151,8 +130,8 @@
                                             @foreach($subCategories as $item)
 
                                                 <option
-                                                    {{$item->sub_category_id == $data->sub_category_id ? 'selected' : null}}
-                                                    value="{{$item->sub_category_id}}">{{$item->sub_category_name}}</option>
+                                                    {{$item->id == $data->sub_category_id ? 'selected' : null}}
+                                                    value="{{$item->category_id}}">{{$item->category_name}}</option>
                                             @endforeach
                                         </select>
                                         <small style="color: #e20000" class="error" id="sub_category_id-error"></small>

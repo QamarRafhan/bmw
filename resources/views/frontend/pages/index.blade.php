@@ -29,7 +29,7 @@
 							<li class=" scroll active"><a href="{{route('home')}}">home</a></li>
 							<li class="scroll"><a href="#service">service</a></li>
 							<li class="scroll"><a href="#featured-cars">featured Wheel</a></li>
-							<li class="scroll"><a href="#new-cars">new cars</a></li>
+							<li class="scroll"><a href="#new-cars">Special Wheels</a></li>
 							<li class="scroll"><a href="#brand">brands</a></li>
 							<li class="scroll"><a href="#contact">contact</a></li>
 						</ul><!--/.nav -->
@@ -217,7 +217,7 @@
 	<div class="container">
 		<div class="section-header">
 			<p>checkout <span>the</span> latest Wheel</p>
-			<h2>newest wheel</h2>
+			<h2>Special Wheels</h2>
 		</div><!--/.section-header-->
 		<div class="new-cars-content">
 			<div class="owl-carousel owl-theme" id="new-cars-carousel">
@@ -593,38 +593,18 @@
 	<div class="container">
 		<div class="brand-area">
 			<div class="owl-carousel owl-theme brand-item">
-				<div class="item">
-					<a href="#">
-						<img src="frontend_assets/images/brand/br1.png" alt="brand-image" />
-					</a>
-				</div><!--/.item-->
-				<div class="item">
-					<a href="#">
-						<img src="frontend_assets/images/brand/br2.png" alt="brand-image" />
-					</a>
-				</div><!--/.item-->
-				<div class="item">
-					<a href="#">
-						<img src="frontend_assets/images/brand/br3.png" alt="brand-image" />
-					</a>
-				</div><!--/.item-->
-				<div class="item">
-					<a href="#">
-						<img src="frontend_assets/images/brand/br4.png" alt="brand-image" />
-					</a>
-				</div><!--/.item-->
+				@foreach($brands as $brand)
+					<div class="item">
+						<a href="#">
 
-				<div class="item">
-					<a href="#">
-						<img src="frontend_assets/images/brand/br5.png" alt="brand-image" />
-					</a>
-				</div><!--/.item-->
+							<img src="{{url
+									('uploads/images/brand/' .
+									$brand->brand_image)}}" alt="brand-image" />
+							<!-- <img src="frontend_assets/images/brand/br1.png" alt="brand-image" /> -->
+						</a>
+					</div><!--/.item-->
+				@endforeach
 
-				<div class="item">
-					<a href="#">
-						<img src="frontend_assets/images/brand/br6.png" alt="brand-image" />
-					</a>
-				</div><!--/.item-->
 			</div><!--/.owl-carousel-->
 		</div><!--/.clients-area-->
 

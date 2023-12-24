@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserSubscriptionsController;
+use App\Models\BrandModel;
+use App\Models\product\ProductModel;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,7 +40,11 @@ Route::get('/dashboard', function () {
     return view('index');
 });
 Route::get('/', function () {
-    return view('frontend.pages.index');
+    $brands = BrandModel::All();
+    $products = ProductModel::All();
+
+
+    return view('frontend.pages.index', ['brands' => $brands, 'products' => $products]);
 })->name('home');
 
 

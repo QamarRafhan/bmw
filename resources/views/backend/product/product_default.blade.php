@@ -198,7 +198,7 @@
                                                                 data-bs-dismiss="modal">Cancel
                                                         </button>
                                                         <button onclick="window.location.replace
-                                                        ('remove_product/{{$item->product_id}}');"
+                                                        ('remove_product/{{$item->id}}');"
                                                                 class="btn btn-dark">Confirm
                                                         </button>
                                                     </div>

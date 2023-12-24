@@ -140,7 +140,7 @@ class ProductController extends Controller
     public static function getProductImages($productId)
     {
         if ($productId) {
-            return ProductImagesModel::where('image_product_id', '=', $productId)->get('product_image');
+            return ProductImagesModel::where('product_id', '=', $productId)->get('product_image');
         }
         return [];
     }
@@ -182,8 +182,8 @@ class ProductController extends Controller
                 foreach ($images as $item)
                     MyHelpers::deleteImageFromStorage($item->product_image, self::PRODUCT_IMAGES_PATH . '/');
 
-                return redirect('vendor/products')->with('success', 'Removed Successfully.');
-            } else return redirect('vendor/products')->with('error', 'Failed to remove this product.');
+                return redirect('seller/products')->with('success', 'Removed Successfully.');
+            } else return redirect('seller/products')->with('error', 'Failed to remove this product.');
         } catch (ModelNotFoundException $exception) {
             return redirect('products')->with('error', 'Failed to remove this product.');
         }
@@ -201,7 +201,7 @@ class ProductController extends Controller
 
             $brands = BrandModel::all();
          
-            $subCategories = SubCategoryModel::all();
+            $subCategories = CategoryModel::all();
             $productImages = ProductImagesModel::where('product_id', $productId)->get();
             return view('backend.product.product_edit', compact('data', 'brands', 'subCategories', 'productImages'));
         } catch (ModelNotFoundException $exception) {
@@ -316,7 +316,7 @@ class ProductController extends Controller
             ->where('user_id', Auth::id())->get('vendor_id')[0]->vendor_id;
 
         // selecting all products related to this shop
-        $data = ProductModel::where('vendor_id', Auth::id())->get();
+        $data = ProductModel::where('vendor_id',1)->get();
         return view('backend.product.product_default', compact('data'));
     }
 }
