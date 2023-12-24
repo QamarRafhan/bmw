@@ -138,27 +138,27 @@
 
                                     </div>
                                     <div class="form-check">
-                                        <input name="product_status" class="form-check-input" type="checkbox"
+                                        <input name="product_status" class="form-check-input" type="checkbox" value=1
                                                id="gridCheck" {{$data->product_status ? 'checked' : null}}>
                                         <label class="form-check-label" for="gridCheck">Available</label>
                                     </div>
                                     <div class="form-check">
-                                        <input name="hot_deal" class="form-check-input" type="checkbox"
+                                        <input name="hot_deal" class="form-check-input" type="checkbox" value=1
                                                id="gridCheck2" {{$data->hot_deal ? 'checked' : null}}>
                                         <label class="form-check-label" for="gridCheck2">Hot Deal</label>
                                     </div>
                                     <div class="form-check">
-                                        <input name="featured_product" class="form-check-input" type="checkbox"
+                                        <input name="featured_product" class="form-check-input" type="checkbox" value=1
                                                id="gridCheck3" {{$data->featured_product ? 'checked' : null}}>
                                         <label class="form-check-label" for="gridCheck3">Featured Product</label>
                                     </div>
                                     <div class="form-check">
-                                        <input name="special_offer" class="form-check-input" type="checkbox"
+                                        <input name="special_offer" class="form-check-input" type="checkbox" value=1
                                                id="gridCheck4" {{$data->special_offer ? 'checked' : null}}>
                                         <label class="form-check-label" for="gridCheck4">Special Offer</label>
                                     </div>
                                     <div class="form-check">
-                                        <input name="special_deal" class="form-check-input" type="checkbox"
+                                        <input name="special_deal" class="form-check-input" type="checkbox" value=1
                                                id="gridCheck5" {{$data->special_deal ? 'checked' : null}}>
                                         <label class="form-check-label" for="gridCheck5">Special Deal</label>
                                     </div>

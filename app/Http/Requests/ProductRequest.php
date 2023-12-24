@@ -34,13 +34,22 @@ class ProductRequest extends FormRequest
             'product_short_description' => ['required', 'string'],
             'product_long_description' => ['nullable', 'string'],
             // 'product_quantity' => ['required', 'int'],
-            'product_thumbnail' => [$editCase ? 'nullable' : 'required', 'image', 'mimes:' . self::ALLOWED_EXTENSION,
-        'max:4096'],
+            'product_thumbnail' => [
+                $editCase ? 'nullable' : 'required', 'image', 'mimes:' . self::ALLOWED_EXTENSION,
+                'max:4096'
+            ],
             'product_images' => [$editCase ? 'nullable' : 'required', 'array'],
             'product_images.*' => ['image', 'mimes:' . self::ALLOWED_EXTENSION, 'max:4096'],
             'product_price' => ['required', 'numeric'],
             'brand_id' => ['required', 'int'],     // brand id
             'sub_category_id' => ['required', 'int'],     // category id
+            'product_status' => ['sometimes'],     // category id
+            'hot_deal' => ['sometimes'],     // category id
+            'featured_product' => ['sometimes'],     // category id
+            'special_offer' => ['sometimes'],     // category id
+            'special_deal' => ['sometimes'],     // category id
+
+
 
         ];
     }

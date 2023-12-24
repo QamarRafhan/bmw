@@ -197,10 +197,10 @@ class ProductController extends Controller
 
         try {
             $data = ProductModel::findOrFail($productId);
-
+            // dd($data);
 
             $brands = BrandModel::all();
-         
+
             $subCategories = CategoryModel::all();
             $productImages = ProductImagesModel::where('product_id', $productId)->get();
             return view('backend.product.product_edit', compact('data', 'brands', 'subCategories', 'productImages'));
@@ -316,7 +316,7 @@ class ProductController extends Controller
             ->where('user_id', Auth::id())->get('vendor_id')[0]->vendor_id;
 
         // selecting all products related to this shop
-        $data = ProductModel::where('vendor_id',1)->get();
+        $data = ProductModel::where('vendor_id', 1)->get();
         return view('backend.product.product_default', compact('data'));
     }
 }
