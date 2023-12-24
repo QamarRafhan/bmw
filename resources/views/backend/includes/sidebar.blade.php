@@ -63,7 +63,7 @@ $status = Auth::user()->status;
             </ul>
 
         </li>
-        <!-- <li>
+        <li>
             <a class="has-arrow" style="cursor: pointer">
                 <div class="parent-icon"><i class='lni lni-folder'></i>
                 </div>
@@ -75,7 +75,7 @@ $status = Auth::user()->status;
                 <li> <a href="{{route('category-add')}}"><i class="bx bx-right-arrow-alt"></i>Add Category</a>
                 </li>
             </ul>
-        </li> -->
+        </li>
 
         <li>
             <a class="has-arrow" style="cursor: pointer">

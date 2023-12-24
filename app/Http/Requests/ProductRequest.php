@@ -28,12 +28,12 @@ class ProductRequest extends FormRequest
         $editCase = $this->get('product_id');
         return [
             'product_name' => ['required', 'string', 'max:250'],
-            'product_code' => [$editCase ? 'nullable' : 'required', 'string', 'max:250', 'unique:product'],
-            'product_tags' => ['required', 'string'],
-            'product_colors' => ['required', 'string'],
+            // 'product_code' => [$editCase ? 'nullable' : 'required', 'string', 'max:250', 'unique:product'],
+            // 'product_tags' => ['required', 'string'],
+            // 'product_colors' => ['required', 'string'],
             'product_short_description' => ['required', 'string'],
             'product_long_description' => ['nullable', 'string'],
-            'product_quantity' => ['required', 'int'],
+            // 'product_quantity' => ['required', 'int'],
             'product_thumbnail' => [$editCase ? 'nullable' : 'required', 'image', 'mimes:' . self::ALLOWED_EXTENSION,
         'max:4096'],
             'product_images' => [$editCase ? 'nullable' : 'required', 'array'],
